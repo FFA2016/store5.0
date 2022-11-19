@@ -1,15 +1,49 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import {HeaderSimple} from './components/navbar';
+import {HeroImageRight} from './components/welcome-head';
+import {FeaturesCards} from './components/featured';
+import {FooterSimple} from './components/footer';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+// @ts-ignore
 root.render(
   <React.StrictMode>
-    <App />
+    <HeaderSimple links={[
+    {
+        "link": "/",
+        "label": "Home"
+    },
+    {
+        "link": "/products",
+        "label": "Products"
+    },
+    {
+        "link": "/about",
+        "label": "About Us"
+    },
+    {
+        "link": "/contact",
+        "label": "Contact Us"
+    }]
+    }/>
+      <HeroImageRight/>
+      <FeaturesCards/>
+      <FooterSimple links={[
+          {
+              "link": "/",
+              "label": "Privacy Policy"
+          },
+          {
+              "link": "/imprint",
+              "label": "Imprint"
+          }
+      ]}
+          />
   </React.StrictMode>
 );
 
