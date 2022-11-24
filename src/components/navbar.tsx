@@ -4,59 +4,63 @@ import { useState } from 'react';
 import { createStyles, Header, Container, Group, Burger } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { BsCart2 } from 'react-icons/bs';
-const useStyles = createStyles((theme) => ({
-    header: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        height: '100%',
-        '&:hover': {
-            backgroundColor: 'rgba(0, 0, 0, 0.7'
-        }
-    },
-
-    links: {
-        [theme.fn.smallerThan('xs')]: {
-            display: 'none',
-        },
-    },
-
-    burger: {
-        [theme.fn.largerThan('xs')]: {
-            display: 'none',
-        },
-    },
-
-    link: {
-        display: 'block',
-        lineHeight: 1,
-        padding: '8px 12px',
-        borderRadius: theme.radius.sm,
-        textDecoration: 'none',
-        color: '#262626',
-        fontSize: theme.fontSizes.sm,
-        fontWeight: 500,
-
-        '&:hover': {
-            backgroundColor: '#e8e8e8',
-        },
-    },
-
-    linkActive: {
-        '&, &:hover': {
-            backgroundColor: '#cbcbcb',
-            color: '#262626',
-        },
-    },
+import {useWindowScroll} from "@mantine/hooks";
 
 
-}));
 
 interface HeaderSimpleProps {
     links: { link: string; label: string }[];
 }
 
 export function HeaderSimple({ links }: HeaderSimpleProps) {
+    const [scroll, scrollTo] = useWindowScroll();
+    const useStyles = createStyles((theme) => ({
+        header: {
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            height: '100%',
+            '&:hover': {
+                backgroundColor: 'rgba(0, 0, 0, 0.7)'
+            }
+        },
+
+        links: {
+            [theme.fn.smallerThan('xs')]: {
+                display: 'none',
+            },
+        },
+
+        burger: {
+            [theme.fn.largerThan('xs')]: {
+                display: 'none',
+            },
+        },
+
+        link: {
+            display: 'block',
+            lineHeight: 1,
+            padding: '8px 12px',
+            borderRadius: theme.radius.sm,
+            textDecoration: 'none',
+            color: '#262626',
+            fontSize: theme.fontSizes.sm,
+            fontWeight: 500,
+
+            '&:hover': {
+                backgroundColor: '#e8e8e8',
+            },
+        },
+
+        linkActive: {
+            '&, &:hover': {
+                backgroundColor: '#cbcbcb',
+                color: '#262626',
+            },
+        },
+
+
+    }));
     const [opened, { toggle }] = useDisclosure(false);
     const [active, setActive] = useState(links[0].link);
     const { classes, cx } = useStyles();
@@ -83,15 +87,15 @@ export function HeaderSimple({ links }: HeaderSimpleProps) {
                     top: 0,
                     left: 0,
                     width: "100%",
-                    backgroundColor: 'rgba(255, 255, 255, 0.3)',
-                    '&:hover': {
-                        backgroundColor: 'rgba(0, 0, 0, 0.7'
-                    }
+                    scrollBehavior: 'smooth',
+                    backgroundColor: scroll.y > 150 ? 'rgba(255, 255, 255, 0.7)' : 'rgba(255, 255, 255, 0.3)',
+                    transitionDuration: '0.5s',
+
 
                 }
             }>
                 <Container className={classes.header}>
-                    <a href="/Users/Alexander Abt/webstormprojects/store5.0/public"><img src={logo} alt={'logo'} width={'150px'} /></a>
+                    <a href="/"><img src={logo} alt={'logo'} width={'150px'} /></a>
 
                     <Group spacing={5} className={classes.links}>
                         {items}

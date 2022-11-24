@@ -6,6 +6,7 @@ import {HeroImageRight} from './components/welcome-head';
 import {FeaturesCards} from './components/featured';
 import {FooterSimple} from './components/footer';
 import reportWebVitals from './reportWebVitals';
+import products from './pages/products';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

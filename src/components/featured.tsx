@@ -9,24 +9,28 @@ import {
     SimpleGrid,
     Container, Grid,
 } from '@mantine/core';
+import basic_hoodie from "../images/Basic_Collection/Basic_Hoodie.png";
+import basic_tshirt from "../images/Basic_Collection/Basic Tshirt.png";
+import zip_hoodie from "../images/Basic_Collection/Zip Hoodie Basic.png";
 
-const useStyles = createStyles((theme) => ({
-    description: {
-        '&::after': {
-            content: '""',
-            display: 'block',
-            backgroundColor: theme.fn.primaryColor(),
-            width: 100,
-            height: 5,
-            borderRadius: '5px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            marginBottom: '50px'
-        },
-    },
-}));
 
 export function FeaturesCards() {
+    const useStyles = createStyles((theme) => ({
+        description: {
+            '&::after': {
+                content: '""',
+                display: 'block',
+                backgroundColor: theme.fn.primaryColor(),
+                width: 100,
+                height: 5,
+                borderRadius: '5px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                marginBottom: '50px'
+            },
+        },
+    }));
+
     const { classes, theme } = useStyles();
     return (
         <Container size="lg" py="xl">
@@ -39,13 +43,13 @@ export function FeaturesCards() {
 
             <Grid>
                 <Grid.Col span={4}>
-                    <a href={"/"}><img src={"https://infallible-goodall.185-236-11-136.plesk.page/images/category-1.jpg"} width={'365px'}/></a>
+                    <a href={"/"}><img src={basic_hoodie} width={'365px'} alt={""}/></a>
                 </Grid.Col>
                 <Grid.Col span={4}>
-                    <a href={"/"}><img src={"https://infallible-goodall.185-236-11-136.plesk.page/images/category-1.jpg"} width={'365px'}/></a>
+                    <a href={"/"}><img src={basic_tshirt} width={'365px'}/></a>
                 </Grid.Col>
                 <Grid.Col span={4}>
-                    <a href={"/"}><img src={"https://infallible-goodall.185-236-11-136.plesk.page/images/category-1.jpg"} width={'365px'}/></a>
+                    <a href={"/"}><img src={zip_hoodie} width={'365px'}/></a>
                 </Grid.Col>
             </Grid>
 
