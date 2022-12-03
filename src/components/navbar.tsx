@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import logo from '../images/logo.png';
-import { createStyles, Header, Container, Group, Burger } from '@mantine/core';
+import { createStyles, Header, Container, Group, Burger, Button } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { BsCart2 } from 'react-icons/bs';
 import {useWindowScroll} from "@mantine/hooks";
@@ -55,24 +55,50 @@ export function HeaderSimple({ links }: HeaderSimpleProps) {
             },
         },
 
+        null: {
+
+        }
 
     }));
     const [opened, { toggle }] = useDisclosure(false);
-    const [active, setActive] = useState(links[0].link);
-    const { classes, cx } = useStyles();
+    const [active, setActive] = useState("");
+    const { classes } = useStyles();
+    const navigate = useNavigate(); //Die Const muss imported sein sonnst nichts gehen lulw
 
+    async function setActiveURL(url: string){
+       setActive(url);
+       return url;
+    }
+
+    // das einzige grad ist noch, dass er auch bei home den link "products" als aktiven link markiert
+    console.log(links)
     const items = links.map((link) => (
-        <a
+        <Button variant="light" radius="xs" size="xs"
             key={link.label}
-            href={link.link}
-            className={cx(classes.link, { [classes.linkActive]: active === link.link })}
+                styles={(theme) => ({
+                    root: {
+                        display: 'block',
+                        lineHeight: 1,
+                        padding: '8px 12px',
+                        borderRadius: theme.radius.sm,
+                        textDecoration: 'none',
+                        color: '#262626',
+                        fontSize: theme.fontSizes.sm,
+                        fontWeight: 500,
+
+                        '&:hover': {
+                            backgroundColor: '#e8e8e8',
+                        }
+                    },
+                })}
+            className={active === link.link ? classes.linkActive : classes.null}
             onClick={(event) => {
                 event.preventDefault();
-                setActive(link.link);
+                setActiveURL(link.link).then(r => navigate(r))
             }}
         >
             {link.label}
-        </a>
+        </Button>
     ));
 
     return (
