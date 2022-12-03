@@ -5,6 +5,7 @@ import { useDisclosure } from '@mantine/hooks';
 import { BsCart2 } from 'react-icons/bs';
 import {useWindowScroll} from "@mantine/hooks";
 import black from "../images/black.jpg";
+import {useNavigate} from "react-router-dom";
 
 interface HeaderSimpleProps {
     links: { link: string; label: string }[];

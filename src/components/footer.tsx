@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStyles, Container, Group, Anchor } from '@mantine/core';
 import logo from '../images/logo.png';
+import {useNavigate} from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
     footer: {
@@ -35,14 +36,18 @@ interface FooterSimpleProps {
 
 export function FooterSimple({ links }: FooterSimpleProps) {
     const { classes } = useStyles();
+    const navigate = useNavigate();
     const items = links.map((link) => (
         <Anchor<'a'>
             color="dimmed"
             key={link.label}
-            href={link.link}
-            onClick={(event) => event.preventDefault()}
+            onClick={(event) => {
+                event.preventDefault();
+                navigate(link.link);
+            }}
             size="sm"
         >
+
             {link.label}
         </Anchor>
     ));

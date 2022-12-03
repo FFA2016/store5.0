@@ -5,7 +5,7 @@ import {FooterSimple} from "../components/footer";
 import React from "react";
 import {Outlet} from "react-router-dom";
 
-export default function App() {
+export default function Home() {
     return (
         <>
             <HeaderSimple links={[
@@ -19,13 +19,13 @@ export default function App() {
             <FeaturesCards/>
             <FooterSimple links={[
                 {
-                    "link": "/",
+                    "link": "/privacy",
                     "label": "Privacy Policy"
                 },
-    {
-        "link": "/imprint",
-        "label": "Imprint"
-    }
+                {
+                    "link": "/imprint",
+                    "label": "Imprint"
+                }
 ]}/>
             <Outlet/>
     </>
