@@ -79,7 +79,7 @@ export function HeaderSimple({ links }: HeaderSimpleProps) {
                     root: {
                         display: 'block',
                         lineHeight: 1,
-                        padding: '8px 12px',
+                        padding: '6px 12px',
                         borderRadius: theme.radius.sm,
                         textDecoration: 'none',
                         color: '#262626',
@@ -130,7 +130,7 @@ export function HeaderSimple({ links }: HeaderSimpleProps) {
                     <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
                 </Container>
             </Header>
-            <img src={black} alt={'randomImage'} width={'100%'} height={'550px'} style={{ position: 'absolute', top: 0, left: 0, zIndex: -1 }} />
+
         </>
     );
 }

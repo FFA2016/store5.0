@@ -26,7 +26,7 @@ export function FeaturesCards() {
                 borderRadius: '5px',
                 marginLeft: 'auto',
                 marginRight: 'auto',
-                marginBottom: '50px'
+                marginBottom: '-250px'
             },
         },
     }));
@@ -43,13 +43,25 @@ export function FeaturesCards() {
 
             <Grid>
                 <Grid.Col span={4}>
-                    <a href={"/"}><img src={basic_hoodie} width={'365px'} alt={""}/></a>
+                    <a href={"/"}><img src={basic_hoodie} width={'365px'} alt={""}  style={{
+                        aspectRatio: '1/3',
+                        objectFit: 'contain',
+                        mixBlendMode: 'color-burn',
+                    }}/></a>
                 </Grid.Col>
                 <Grid.Col span={4}>
-                    <a href={"/"}><img src={basic_tshirt} width={'365px'}/></a>
+                    <a href={"/"}><img src={basic_tshirt} width={'365px'}  style={{
+                        aspectRatio: '1/3',
+                        objectFit: 'contain',
+                        mixBlendMode: 'color-burn',
+                    }}/></a>
                 </Grid.Col>
                 <Grid.Col span={4}>
-                    <a href={"/"}><img src={zip_hoodie} width={'365px'}/></a>
+                    <a href={"/"}><img src={zip_hoodie} width={'365px'}  style={{
+                        aspectRatio: '1/3',
+                        objectFit: 'contain',
+                        mixBlendMode: 'color-burn',
+                    }}/></a>
                 </Grid.Col>
             </Grid>
 
